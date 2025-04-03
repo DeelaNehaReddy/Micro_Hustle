@@ -1,0 +1,59 @@
+/* Base styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Animation for modal */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  #paymentModal, #newGigModal {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .max-w-md {
+      width: 95%;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Form input focus styles */
+  input:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+  }
+  
+  /* Button transitions */
+  button {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Hide elements with hidden class */
+  .hidden {
+    display: none !important;
+  }
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  #error-toast {
+    transition: opacity 0.3s ease;
+  }
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .animate-spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

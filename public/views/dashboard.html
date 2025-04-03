@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Micro Hustle - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-xl font-bold text-indigo-600">Micro Hustle</span>
+        </div>
+        <div class="flex items-center">
+          <span class="text-gray-600 mr-4"><%= user.email %></span>
+          <a href="/logout" class="text-indigo-600 hover:text-indigo-800">Logout</a>
+          <a href="/browse" class="ml-4 text-indigo-600">Browse Gigs</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="px-4 py-6 sm:px-0">
+      <div class="border-4 border-dashed border-gray-200 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold mb-6">Your Gigs</h2>
+        
+        <div class="mb-8">
+          <button id="newGigBtn" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+            Create New Gig
+          </button>
+        </div>
+        
+        <div id="gigsList" class="space-y-4">
+          <% if (gigs.length === 0) { %>
+            <p class="text-gray-500">You don't have any gigs yet.</p>
+          <% } else { %>
+            <% gigs.forEach(gig => { %>
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                <div>
+                  <h3 class="font-medium text-lg"><%= gig.title || 'Untitled Gig' %></h3>
+                  <p class="text-gray-600"><%= gig.description || 'No description' %></p>
+                  <p class="text-sm mt-2">
+                    Status: 
+                    <span class="font-medium <%= gig.paymentStatus === 'completed' ? 'text-green-500' : 'text-yellow-500' %>">
+                      <%= gig.paymentStatus || 'pending' %>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            <% }); %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- New Gig Modal -->
+  <div id="newGigModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg max-w-md w-full">
+      <h3 class="text-lg font-medium mb-4">Create New Gig</h3>
+      <form id="newGigForm" class="space-y-4">
+        <div>
+          <label for="gigTitle" class="block text-sm font-medium text-gray-700">Title</label>
+          <input type="text" id="gigTitle" name="title" required 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        
+        <div>
+          <label for="gigDescription" class="block text-sm font-medium text-gray-700">Description</label>
+          <textarea id="gigDescription" name="description" rows="3"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+        </div>
+        
+        <div>
+          <label for="gigAmount" class="block text-sm font-medium text-gray-700">Amount (USD)</label>
+          <input type="number" id="gigAmount" name="amount" min="1" value="50" required 
+                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        
+        <div class="flex justify-end space-x-3">
+          <button type="button" id="cancelGig" class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+            Cancel
+          </button>
+          <button type="submit" class="px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+            Create Gig
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
