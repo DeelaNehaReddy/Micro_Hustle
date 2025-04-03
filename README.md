@@ -13,7 +13,7 @@ A simple freelancing platform where users can create and browse gigs.
   Form data submitted securely via POST with server-side validation
   ![image](https://github.com/user-attachments/assets/f5b5e9a4-30e3-414b-9e7c-799133b3248c)
   
- - **Dashboard**:
+ - **Dashboard/Ensuring a Decent User Interface (UI)**:
   ![image](https://github.com/user-attachments/assets/959a7524-d8b8-45c0-9eb6-83c9faec167e)
 
 - **Email Duplication Prevention in Sign-Up Functionality**
@@ -27,6 +27,9 @@ A simple freelancing platform where users can create and browse gigs.
   All passwords are hashed before storage (10 salt rounds)
   ![image](https://github.com/user-attachments/assets/1bf2e626-96e3-4831-9ca3-97c1d9abe489)
 
+ - **Mandatory Use of the POST Method for Sign-In and Sign-Up Functionality:**
+
+   
 ✅ **Gig Management**
 - Create new gigs (title, description, price)
  ![image](https://github.com/user-attachments/assets/7935cb09-5ee8-4ccf-bdf8-8f7d6814bb07)
