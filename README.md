@@ -19,6 +19,10 @@ A simple freelancing platform where users can create and browse gigs.
 - **Email Duplication Prevention in Sign-Up Functionality**
   To maintain data integrity and user uniqueness, the application must validate that the email provided during sign-up has not been used before.
   ![image](https://github.com/user-attachments/assets/752c7192-56f4-4598-a6c1-712a31dc3f20)
+
+  **Mandatory Use of the POST Method for Sign-In and Sign-Up Functionality:**
+  ![WhatsApp Image 2025-04-03 at 14 28 12_3ea05b31](https://github.com/user-attachments/assets/b93bb927-6477-469c-8df3-449777b5faae)
+
   
 ## 🔒 Security Implementations
 
